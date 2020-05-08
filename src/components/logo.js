@@ -4,7 +4,6 @@ import {
   View,
   Image,
   StyleSheet,
-  ImageBackground,
 } from 'react-native';
 
 import logoImg from'../img/Logo.png';
