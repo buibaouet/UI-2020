@@ -32,6 +32,9 @@ class Register extends Component {
     else if(expression.test(String(this.state.email).toLowerCase())==false){
       Alert.alert("Email không hợp lệ");
     }
+    if(this.state.pass.length < 8 || this.state.pass.length > 14){
+      Alert.alert("Mật khẩu phải bao gồm 8-14 ký tự");
+    }
     else if(this.state.pass!=this.state.repass){
       Alert.alert("Mật khẩu không khớp");
     }

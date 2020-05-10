@@ -7,6 +7,7 @@ import Register from '../screen/Register.js';
 import Forget from '../screen/forgetPass.js';
 import Confirm from '../screen/confirm.js';
 import ChangePass from '../screen/changePass.js';
+import Home from '../screen/homePage.js';
 
 const AppNavigator = createStackNavigator(
     {
@@ -44,6 +45,12 @@ const AppNavigator = createStackNavigator(
         screen: ChangePass,
         navigationOptions:{
           title: 'Taọ mật khẩu mới',
+        },
+      },
+      MH_Home:{
+        screen: Home,
+        navigationOptions:{
+          title: 'Trang chủ',
         },
       },
     },

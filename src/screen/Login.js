@@ -25,9 +25,8 @@ class Login extends Component {
     if(this.state.username.length==0||this.state.pass.length==0){
       Alert.alert("Vui lòng nhập tài khoản và mật khẩu!");
     }
-    else if(this.state.pass=="12345"&&this.state.username=="nhom8ui"){
-      this._storeData;
-      this.props.navigation.navigate('');
+    else if(this.state.pass=="12345678"&&this.state.username=="nhom8ui"){
+      this.props.navigation.navigate('MH_Home');
     }
     else{
       Alert.alert("Tài khoản hoặc mật khẩu không đúng");
@@ -40,22 +39,24 @@ class Login extends Component {
         <ImageBackground style={styles.bg} source={bgImg}>
           <Logo/>
           <View style={styles.container}>
-          <TextInput
-            style={styles.input}
-            placeholder='Tên đăng nhập'
-            onChangeText={(username)=>this.setState({username})}
-            value={this.state.username}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder='Mật khẩu'
-            secureTextEntry={true}
-            onChangeText={(pass)=>this.setState({pass})}
-            value={this.state.pass}
-          />
-          <TouchableOpacity onPress={() => navigate('MH_forgetPass')}>
-            <Text style={styles.forgot}>Quên mật khẩu?</Text>
-          </TouchableOpacity>
+          <View style={{marginLeft:0.35*DEVICE_WIDTH/2, marginRight:0.35*DEVICE_WIDTH/2}}>
+            <TextInput
+              style={styles.input}
+              placeholder='Tên đăng nhập'
+              onChangeText={(username)=>this.setState({username})}
+              value={this.state.username}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder='Mật khẩu'
+              secureTextEntry={true}
+              onChangeText={(pass)=>this.setState({pass})}
+              value={this.state.pass}
+            />
+            <TouchableOpacity style={{alignItems: 'flex-end'}} onPress={() => navigate('MH_forgetPass')}>
+              <Text style={styles.forgot}>Quên mật khẩu?</Text>
+            </TouchableOpacity>
+          </View>
           <TouchableOpacity style = {styles.button} onPress={() => {this.sign()}}>
             <Text style={styles.text}>Đăng nhập</Text>
           </TouchableOpacity>
@@ -81,7 +82,8 @@ var styles = StyleSheet.create({
       width: 0.65*DEVICE_WIDTH,
       backgroundColor: '#DDDDDD',
       borderRadius: 10,
-      margin: 10,
+      marginBottom: 10,
+      marginTop: 10,
       paddingLeft: 15,
       paddingRight: 15,
       fontSize: 16
