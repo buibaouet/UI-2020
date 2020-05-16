@@ -53,15 +53,15 @@ class HomePage extends Component {
           </View>
 
           <View style={styles.container}>
-            <TouchableOpacity style={styles.page} onPress={() => navigate('')}>
+            <TouchableOpacity style={styles.page} onPress={() => navigate('MH_VocabularyStudy')}>
               <Image source={vocab} style={styles.image} />
               <Text style={styles.text}>Học từ vựng</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.page} onPress={() => navigate('')}>
+            <TouchableOpacity style={styles.page} onPress={() => navigate('MH_GrammarStudy')}>
               <Image source={grammar} style={styles.image} />
               <Text style={styles.text}>Học ngữ pháp</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.page} onPress={() => navigate('')}>
+            <TouchableOpacity style={styles.page} onPress={() => navigate('MH_Exercise')}>
               <Image source={hwork} style={styles.image} />
               <Text style={styles.text}>Làm bài tập</Text>
             </TouchableOpacity>
