@@ -14,7 +14,7 @@ Cô Ngô Thị Duyên
 Bùi Văn Bảo - 17020599
 ```
 ```
-Sụ phít Phôm ma chăn
+Sụ phít Phôm ma chăn - 17020190
 ```
 ```
 Phan Huy Hoàng
