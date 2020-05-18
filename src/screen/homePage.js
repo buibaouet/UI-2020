@@ -30,10 +30,10 @@ class HomePage extends Component {
         <ImageBackground style={styles.bg} source={bgImg}>
           <View style={{flex:2, backgroundColor: ''}}>
             <View style={{flex:1/4, flexDirection: 'row', justifyContent: 'flex-end'}}>
-              <TouchableOpacity onPress={() => navigate('')}>
+              <TouchableOpacity onPress={() => navigate('MH_noti')}>
                 <Image source={notifi} style={styles.icon} />
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigate('')}>
+              <TouchableOpacity onPress={() => navigate('MH_changeProfile')}>
                 <Image source={user} style={styles.icon} />
               </TouchableOpacity>
             </View>

@@ -11,6 +11,10 @@ import Home from '../screen/homePage.js';
 import Exercise from '../screen/Exercise.js';
 import GrammarStudy from '../screen/GrammarStudy.js';
 import VocabularyStudy from '../screen/VocabularyStudy.js';
+import changeProfile from '../screen/changeProfile.js';
+import changePassword from '../screen/changePassword.js';
+import updateProfile from '../screen/updateProfile.js';
+import noti from '../screen/noti.js'
 import GS1 from '../screen/GS1.js';
 import GS2 from '../screen/GS2.js';
 import GS3 from '../screen/GS3.js';
@@ -79,6 +83,30 @@ const AppNavigator = createStackNavigator(
         screen: Home,
         navigationOptions:{
           title: 'Trang chủ',
+        },
+      },
+      MH_changeProfile:{
+        screen: changeProfile,
+        navigationOptions:{
+          title: 'Thay đổi thông tin cá nhân',
+        },
+      },
+      MH_changePassword:{
+        screen: changePassword,
+        navigationOptions:{
+          title: 'Thay đổi mật khẩu',
+        },
+      },
+      MH_updateProfile:{
+        screen: updateProfile,
+        navigationOptions:{
+          title: 'Cập nhật thông tin cá nhân',
+        },
+      },
+      MH_noti:{
+        screen: noti,
+        navigationOptions:{
+          title: 'Thông báo',
         },
       },
       MH_Exercise:{
