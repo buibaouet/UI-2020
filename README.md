@@ -11,10 +11,15 @@ Cô Ngô Thị Duyên
 ## Thành viên:
 
 > Bùi Văn Bảo - 17020599
+
 > Sụ phít Phôm ma chăn - 17020190
+
 > Phan Huy Hoàng
+
 > Hoàng Thị Ngọc Huyền
+
 > Nguyễn Văn Tráng
+
 > Vũ Quốc Trưởng
 
 ## Hướng dẫn cài đặt
