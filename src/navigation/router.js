@@ -8,6 +8,7 @@ import Forget from '../screen/forgetPass.js';
 import Confirm from '../screen/confirm.js';
 import ChangePass from '../screen/changePass.js';
 import Home from '../screen/homePage.js';
+import Dictionary from '../screen/Dictionary.js';
 import Exercise from '../screen/Exercise.js';
 import GrammarStudy from '../screen/GrammarStudy.js';
 import VocabularyStudy from '../screen/VocabularyStudy.js';
@@ -83,6 +84,12 @@ const AppNavigator = createStackNavigator(
         screen: Home,
         navigationOptions:{
           title: 'Trang chủ',
+        },
+      },
+      MH_Dictionary:{
+        screen: Dictionary,
+        navigationOptions:{
+          title: 'Từ điển',
         },
       },
       MH_changeProfile:{
@@ -277,7 +284,7 @@ const AppNavigator = createStackNavigator(
           title: 'Màu sắc (Colors)',
         },
       },
-      
+
     },
     {
         initialRouteName: 'MH_index',

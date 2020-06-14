@@ -27,7 +27,7 @@ class Confirm extends Component {
     else if(this.state.id.length<8){
       Alert.alert("Nhập mã xác thực bao gồm 8 ký tự");
     }
-    else if(this.state.id=="u0e1t2vn"){
+    else if(this.state.id=="uet12345"){
       this.props.navigation.navigate('MH_changePass');
     }
     else{

@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Dimensions,
   TouchableOpacity,
+  FlatList
 } from 'react-native';
 
 import bgImg from'../img/wallpaper.jpg';
@@ -23,6 +24,46 @@ import notifi from'../img/notification.png';
 import search from'../img/search.png';
 
 class HomePage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.arrayWords = [
+      'Apple',
+      'Apricot',
+      'Avocado',
+      'Banana',
+      'Blackberry',
+      'Blackcurrant',
+      'Blueberry',
+      'Boysenberry',
+      'Cherry',
+      'Coconut',
+      'Grape',
+      'Grapefruit',
+      'Kiwifruit ',
+      'Lemon',
+      'Lime',
+      'Litchi',
+      'Mango',
+      'Melon',
+      'Nectarine',
+      'Orange',
+      'Papaya',
+    ];
+  }
+
+  SearchFilterFunction(text) {
+      const newData = this.arrayWords.filter(function(item) {
+        const itemData = item ? item.toUpperCase() : ''.toUpperCase();
+        const textData = text.toUpperCase();
+        return itemData.indexOf(textData) > -1;
+      });
+      this.setState({
+        dataSource: newData,
+        text: text,
+      });
+    }
+
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -41,6 +82,7 @@ class HomePage extends Component {
               <Text style={{color: 'white',fontSize: 35, fontWeight: 'bold',}}>UET-Eng</Text>
               <Image source={logo} style={{width: 80,resizeMode: 'contain',}} />
             </View>
+
             <View style={styles.search}>
               <Image source={search} style={{width: 28,resizeMode: 'contain',}} />
               <TextInput
@@ -48,8 +90,23 @@ class HomePage extends Component {
                 fontSize: 18,
                 width: DEVICE_WIDTH*0.65,}}
                 placeholder='Tra từ điển Anh-Việt'
+                onChangeText={text => this.SearchFilterFunction(text)}
               />
             </View>
+          </View>
+
+          <View style={{}}>
+            <FlatList
+              style={styles.FlatList_Item}
+              data={this.state.dataSource}
+              renderItem={({ item }) => (
+                <TouchableOpacity onPress={() => navigate('MH_Dictionary')}>
+                <Text style={styles.textStyle}>{item}</Text>
+                </TouchableOpacity>
+              )}
+              enableEmptySections={true}
+              keyExtractor={(item, index) => index}
+            />
           </View>
 
           <View style={styles.container}>
@@ -85,6 +142,7 @@ class HomePage extends Component {
 }
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
+const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 var styles = StyleSheet.create({
   bg:{
@@ -132,7 +190,19 @@ var styles = StyleSheet.create({
       justifyContent: 'center',
       flexDirection: 'row',
       marginBottom: 20,
-      }
+    },
+
+  textStyle: {
+    padding: 10,
+    fontSize: 18,
+    backgroundColor: '#FFFFCC',
+    borderBottomWidth: 1
+  },
+  FlatList_Item: {
+    height: DEVICE_HEIGHT/3,
+    marginRight: 60,
+    marginLeft: 60
+},
 });
 
 export default HomePage;

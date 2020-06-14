@@ -8,11 +8,10 @@ export default class V1 extends Component {
       <Container>
         <Content>
           <List >
-            <Text>Từ vựng tiếng Anh theo chủ đề:</Text>
             <TouchableOpacity onPress={() => navigate('MH_V11')}>
               <ListItem>
-                <Left>               
-                  <Text>Chủ đề 1: Động vật (Animals)</Text>               
+                <Left>
+                  <Text>Chủ đề 1: Động vật (Animals)</Text>
                 </Left>
                 <Right>
                   <Icon name="arrow-forward" />
