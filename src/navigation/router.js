@@ -40,6 +40,10 @@ import V15 from '../screen/V15.js';
 import V16 from '../screen/V16.js';
 import V17 from '../screen/V17.js';
 import V18 from '../screen/V18.js';
+import Test from '../screen/test.js';
+import listTest from '../screen/listTest.js';
+import listExercise from '../screen/listExercise.js';
+import testKind from '../screen/testKind.js';
 
 const AppNavigator = createStackNavigator(
     {
@@ -107,12 +111,6 @@ const AppNavigator = createStackNavigator(
         screen: noti,
         navigationOptions:{
           title: 'Thông báo',
-        },
-      },
-      MH_Exercise:{
-        screen: Exercise,
-        navigationOptions:{
-          title: 'Làm bài tập',
         },
       },
       MH_GrammarStudy:{
@@ -277,7 +275,36 @@ const AppNavigator = createStackNavigator(
           title: 'Màu sắc (Colors)',
         },
       },
-      
+      MH_Test:{
+        screen: Test,
+        navigationOptions: {
+          headerShown: false,
+        }
+      },
+      MH_ListTest:{
+        screen: listTest,
+        navigationOptions:{
+          title: 'Danh sách bài thi',
+        },
+      },
+      MH_ListExercise:{
+        screen: listExercise,
+        navigationOptions:{
+          title: 'Danh sách bài tập',
+        },
+      },
+      MH_TestKind:{
+        screen: testKind,
+        navigationOptions:{
+          title: 'Dạng bài thi',
+        },
+      },
+      MH_Exercise:{
+        screen: Exercise,
+        navigationOptions:{
+          title: 'Dạng bài tập',
+        },
+      },
     },
     {
         initialRouteName: 'MH_index',

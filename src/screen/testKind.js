@@ -20,7 +20,7 @@ const data = [
   },
 ];
 
-export default class Exercise extends Component {
+export default class TestKind extends Component {
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -32,7 +32,7 @@ export default class Exercise extends Component {
               roundAvatar
               title={item.Des}
               bottomDivider
-              onPress={() => navigate('MH_ListExercise')}
+              onPress={() => navigate('MH_ListTest')}
             />
           )}
         />

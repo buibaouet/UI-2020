@@ -65,7 +65,7 @@ class HomePage extends Component {
               <Image source={hwork} style={styles.image} />
               <Text style={styles.text}>Làm bài tập</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.page} onPress={() => navigate('')}>
+            <TouchableOpacity style={styles.page} onPress={() => navigate('MH_TestKind')}>
               <Image source={exam} style={styles.image} />
               <Text style={styles.text}>Luyện đề thi</Text>
             </TouchableOpacity>

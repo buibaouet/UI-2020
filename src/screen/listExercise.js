@@ -4,23 +4,44 @@ import {List} from 'native-base';
 import { ListItem } from 'react-native-elements';
 const data = [
   {
-      Des: 'Từ vựng',
+      Des: 'Bài tập 1',
   },
   {
-      Des: 'Câu trực tiếp',
+      Des: 'Bài tập 2',
   },
   {
-      Des: 'Câu bị động',
+      Des: 'Bài tập 3',
   },
   {
-      Des: 'Câu điều kiện',
+      Des: 'Bài tập 4',
   },
   {
-      Des: 'Các thì',
+      Des: 'Bài tập 5',
+  },
+  {
+      Des: 'Bài tập 6',
+  },
+  {
+      Des: 'Bài tập 7',
+  },
+  {
+      Des: 'Bài tập 8',
+  },
+  {
+      Des: 'Bài tập 9',
+  },
+  {
+      Des: 'Bài tập 10',
+  },
+  {
+      Des: 'Bài tập 11',
+  },
+  {
+      Des: 'Bài tập 12',
   },
 ];
 
-export default class Exercise extends Component {
+export default class ListExercise extends Component {
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -32,7 +53,7 @@ export default class Exercise extends Component {
               roundAvatar
               title={item.Des}
               bottomDivider
-              onPress={() => navigate('MH_ListExercise')}
+              onPress={() => navigate('MH_Test',item.Des)}
             />
           )}
         />

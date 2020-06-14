@@ -6,7 +6,6 @@ export default class GrammarStudy extends Component {
     const {navigate} = this.props.navigation;
     return (
       <Container>
-
         <Content>
           <List >
             <TouchableOpacity onPress={() => navigate('MH_GS1')}>
