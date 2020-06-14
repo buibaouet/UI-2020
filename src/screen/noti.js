@@ -12,9 +12,6 @@ import bgImg from'../img/wallpaper.jpg';
 import Logo from '../components/logo.js'
 
 class noti extends Component {
-  static navigationOptions:{
-    title: null,
-  };
   render() {
     const {navigate} = this.props.navigation;
     return (
