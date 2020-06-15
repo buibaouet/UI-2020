@@ -36,14 +36,8 @@ class updateProfile extends Component {
     else if (regex.test(String(this.state.phone)) == false) {
         Alert.alert("Số điện thoại không hợp lệ");
     }
-    else if(this.state.pass.length < 8 || this.state.pass.length > 14){
-      Alert.alert("Mật khẩu phải bao gồm 8-14 ký tự");
-    }
-    else if(this.state.pass!=this.state.repass){
-      Alert.alert("Mật khẩu không khớp");
-    }
     else {
-      Alert.alert("Đăng ký tài khoản thành công");
+      Alert.alert("Thay đổi thông tin thành công");
       this.props.navigation.navigate('MH_Home');
     }
   }
@@ -54,18 +48,21 @@ class updateProfile extends Component {
         <>
         
           <ImageBackground style={styles.bg} source={bgImg}>
-            <Logo/>
+          <Logo/>
             <View style={styles.container}>
+            <Text style={{fontSize:24, fontWeight:'bold'}}>Nhập họ và tên mới:</Text>
             <TextInput
               style={styles.input} placeholder='Họ tên'
               onChangeText={(name)=>this.setState({name})}
               value={this.state.name}
             />
+            <Text style={{fontSize:24, fontWeight:'bold'}}>Nhập email mới:</Text>
             <TextInput
               style={styles.input} placeholder='Email'
               onChangeText={(email)=>this.setState({email})}
               value={this.state.email}
             />
+            <Text style={{fontSize:24, fontWeight:'bold'}}>Nhập số điện thoại mới:</Text>
             <TextInput
               style={styles.input} placeholder='Số điện thoại'
               onChangeText={(phone)=>this.setState({phone})}

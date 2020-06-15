@@ -43,8 +43,9 @@ class changePassword extends Component {
     return (
       <>
         <ImageBackground style={styles.bg} source={bgImg}>
+        <Logo/>
           <View style={styles.container}>
-            <Text style={{fontSize:24, fontWeight:'bold'}}>Nhập mật khẩu cũ</Text>
+            <Text style={{fontSize:24, fontWeight:'bold', textAlign:'center'}}>Nhập mật khẩu cũ:</Text>
             <View style={styles.align}>
               <TextInput
                 style={styles.input}
@@ -54,7 +55,7 @@ class changePassword extends Component {
                 value={this.state.oldpass}
               />
             </View>
-            <Text style={{fontSize:24, fontWeight:'bold'}}>Tạo mật khẩu mới</Text>
+            <Text style={{fontSize:24, fontWeight:'bold', textAlign:'center'}}>Tạo mật khẩu mới:</Text>
             <View style={styles.align}>
               <TextInput
                 style={styles.input}
@@ -64,7 +65,7 @@ class changePassword extends Component {
                 value={this.state.pass}
               />
             </View>
-            <Text style={{fontSize:24, fontWeight:'bold'}}>Nhập lại mật khẩu</Text>
+            <Text style={{fontSize:24, fontWeight:'bold', textAlign:'center'}}>Nhập lại mật khẩu:</Text>
             <View style={styles.align}>
               <TextInput
                 style={styles.input}
