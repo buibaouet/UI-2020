@@ -13,6 +13,7 @@ import {
   Alert,
 } from 'react-native';
 import { RadioButton } from 'react-native-paper';
+import CountDown from 'react-native-countdown-component';
 
 const data = [
   {
@@ -118,28 +119,16 @@ export default class Test extends Component {
       <View>
       <Text style={{ textAlign: 'center',fontSize: 40, fontWeight: 'bold',}}>{des}</Text>
       </View>
-
-      <View style={{flexDirection: 'row', alignItems: 'center', margin: 10, marginBottom: 30}}>
-      <Text style={{fontSize: 18}}>Time: 09:00</Text>
-      <TouchableOpacity style={styles.button} onPress={() => {
-        Alert.alert('Nộp bài',
-        'Bạn chắc chắn muốn nộp bài',
-        [
-          {text: 'Yes', onPress: () => {
-            Alert.alert('Điểm số','Bạn được 10 điểm',[{text: 'Trở về trang chủ',onPress: () => { navigate('MH_Home')}}])
-          }},
-          {text: 'No', onPress: () => console.log('No Pressed'), style: 'cancel'},
-        ],
-        { cancelable: false }
-        //clicking out side of alert will not cancel
-      );
-    }}>
-    <Text>
-    Nộp bài
-    </Text>
-    </TouchableOpacity>
-    </View>
-
+      <CountDown
+        until={120}
+        onFinish={() => {
+          Alert.alert('Điểm số','Bạn được 10 điểm',[{text: 'Trở về trang chủ',onPress: () => { navigate('MH_Home')}}])}}
+        size={20}
+        digitStyle={{backgroundColor: '#FFF'}}
+        digitTxtStyle={{color: '#1CC625'}}
+        timeToShow={['M', 'S']}
+        timeLabels={{m: 'Phút', s: 'Giây'}}
+      />
     <View style={{flex: 1/10}}>
     <FlatList
     horizontal
@@ -191,8 +180,25 @@ export default class Test extends Component {
         </View>
         </RadioButton.Group>
         </View>
+        <View style={{flexDirection: 'row', alignItems: 'center', margin: 10, marginBottom: 30}}>
+          <TouchableOpacity style={styles.button} onPress={() => {
+            Alert.alert('Nộp bài',
+            'Bạn chắc chắn muốn nộp bài',
+            [
+              {text: 'Yes', onPress: () => {
+                Alert.alert('Điểm số','Bạn được 10 điểm',[{text: 'Trở về trang chủ',onPress: () => { navigate('MH_Home')}}])
+              }},
+              {text: 'No', onPress: () => console.log('No Pressed'), style: 'cancel'},
+            ],
+            { cancelable: false }
+          );
+        }}>
+        <Text>
+        Nộp bài
+        </Text>
+        </TouchableOpacity>
+        </View>
         </>
-
       );
     }
   }

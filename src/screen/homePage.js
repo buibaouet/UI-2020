@@ -8,8 +8,9 @@ import {
   StyleSheet,
   Dimensions,
   TouchableOpacity,
-  FlatList
+  FlatList,
 } from 'react-native';
+
 
 import bgImg from'../img/wallpaper.jpg';
 import logo from'../img/Logo.png';
