@@ -37,13 +37,8 @@ class updateProfile extends Component {
         Alert.alert("Số điện thoại không hợp lệ");
     }
     else {
-<<<<<<< HEAD
-      Alert.alert("Cập nhật tài khoản thành công");
-      this.props.navigation.navigate('MH_changeProfile');
-=======
       Alert.alert("Thay đổi thông tin thành công");
       this.props.navigation.navigate('MH_Home');
->>>>>>> 477aec41d2aec0984bcb8adbce1a2622977baab1
     }
   }
 
