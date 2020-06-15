@@ -119,16 +119,37 @@ export default class Test extends Component {
       <View>
       <Text style={{ textAlign: 'center',fontSize: 40, fontWeight: 'bold',}}>{des}</Text>
       </View>
+      <View style={{ alignItems: 'center',flexDirection: 'row', margin: 10, marginBottom: 30}}>
+      <Text style={{fontSize: 16, fontWeight: 'bold',}}>Time: </Text>
       <CountDown
-        until={120}
+        until={720}
         onFinish={() => {
           Alert.alert('Điểm số','Bạn được 10 điểm',[{text: 'Trở về trang chủ',onPress: () => { navigate('MH_Home')}}])}}
-        size={20}
+        size={16}
         digitStyle={{backgroundColor: '#FFF'}}
         digitTxtStyle={{color: '#1CC625'}}
         timeToShow={['M', 'S']}
-        timeLabels={{m: 'Phút', s: 'Giây'}}
+        timeLabels={{m: null, s: null}}
+        showSeparator
       />
+      <TouchableOpacity style={styles.button} onPress={() => {
+        Alert.alert('Nộp bài',
+        'Bạn chắc chắn muốn nộp bài',
+        [
+          {text: 'Yes', onPress: () => {
+            Alert.alert('Điểm số','Bạn được 10 điểm',[{text: 'Trở về trang chủ',onPress: () => { navigate('MH_Home')}}])
+          }},
+          {text: 'No', onPress: () => console.log('No Pressed'), style: 'cancel'},
+        ],
+        { cancelable: false }
+      );
+    }}>
+    <Text>
+    Nộp bài
+    </Text>
+    </TouchableOpacity>
+    </View>
+
     <View style={{flex: 1/10}}>
     <FlatList
     horizontal
@@ -181,22 +202,7 @@ export default class Test extends Component {
         </RadioButton.Group>
         </View>
         <View style={{flexDirection: 'row', alignItems: 'center', margin: 10, marginBottom: 30}}>
-          <TouchableOpacity style={styles.button} onPress={() => {
-            Alert.alert('Nộp bài',
-            'Bạn chắc chắn muốn nộp bài',
-            [
-              {text: 'Yes', onPress: () => {
-                Alert.alert('Điểm số','Bạn được 10 điểm',[{text: 'Trở về trang chủ',onPress: () => { navigate('MH_Home')}}])
-              }},
-              {text: 'No', onPress: () => console.log('No Pressed'), style: 'cancel'},
-            ],
-            { cancelable: false }
-          );
-        }}>
-        <Text>
-        Nộp bài
-        </Text>
-        </TouchableOpacity>
+
         </View>
         </>
       );
@@ -237,9 +243,9 @@ export default class Test extends Component {
       width: 0.95 * DEVICE_WIDTH,
       borderRadius: 10,
       flexDirection: 'column',
-      alignItems: 'center',
       justifyContent: 'center',
       marginBottom: 15,
+      padding: 15
     },
     textbox:{
       color: 'black',

@@ -9,9 +9,14 @@ import {
   TextInput,
   Dimensions,
   TouchableOpacity,
+  Image
 } from 'react-native';
 import bgImg from'../img/wallpaper.jpg';
-import Logo from '../components/logo.js'
+import Logo from '../components/logo.js';
+import user from'../img/user.png';
+import password from'../img/pass.png';
+import email from'../img/email.png';
+import phone from'../img/phone.png';
 
 class Register extends Component {
   constructor (props){
@@ -54,52 +59,75 @@ class Register extends Component {
 
     const {navigate} = this.props.navigation;
     return (
-      <ScrollView>
       <>
         <ImageBackground style={styles.bg} source={bgImg}>
           <Logo/>
           <View style={styles.container}>
-          <TextInput
-            style={styles.input} placeholder='Họ tên'
-            onChangeText={(name)=>this.setState({name})}
-            value={this.state.name}
-          />
-          <TextInput
-            style={styles.input} placeholder='Email'
-            onChangeText={(email)=>this.setState({email})}
-            value={this.state.email}
-          />
-          <TextInput
-            style={styles.input} placeholder='Tên đăng nhập'
-            onChangeText={(username)=>this.setState({username})}
-            value={this.state.username}
-          />
-          <TextInput
-            style={styles.input} placeholder='Số điện thoại'
-            onChangeText={(phone)=>this.setState({phone})}
-            value={this.state.phone}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder='Mật khẩu'
-            secureTextEntry={true}
-            onChangeText={(pass)=>this.setState({pass})}
-            value={this.state.pass}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder='Nhập lại mật khẩu'
-            secureTextEntry={true}
-            onChangeText={(repass)=>this.setState({repass})}
-            value={this.state.repass}
-          />
-          <TouchableOpacity style = {styles.button} onPress={() => {this.register()}}>
-            <Text style={styles.text}>Đăng ký</Text>
-          </TouchableOpacity>
+          <View>
+            <View style={styles.SectionStyle}>
+              <Image source={user} style={styles.ImageStyle}/>
+              <TextInput
+                style={styles.input} placeholder='Họ tên'
+                onChangeText={(name)=>this.setState({name})}
+                value={this.state.name}
+              />
+            </View>
+
+            <View style={styles.SectionStyle}>
+              <Image source={email} style={styles.ImageStyle}/>
+              <TextInput
+                style={styles.input} placeholder='Email'
+                onChangeText={(email)=>this.setState({email})}
+                value={this.state.email}
+              />
+              </View>
+
+              <View style={styles.SectionStyle}>
+                <Image source={user} style={styles.ImageStyle}/>
+              <TextInput
+                style={styles.input} placeholder='Tên đăng nhập'
+                onChangeText={(username)=>this.setState({username})}
+                value={this.state.username}
+              />
+              </View>
+
+              <View style={styles.SectionStyle}>
+                <Image source={phone} style={styles.ImageStyle}/>
+              <TextInput
+                style={styles.input} placeholder='Số điện thoại'
+                onChangeText={(phone)=>this.setState({phone})}
+                value={this.state.phone}
+              />
+              </View>
+
+              <View style={styles.SectionStyle}>
+                <Image source={password} style={styles.ImageStyle}/>
+              <TextInput
+                style={styles.input}
+                placeholder='Mật khẩu'
+                secureTextEntry={true}
+                onChangeText={(pass)=>this.setState({pass})}
+                value={this.state.pass}
+              />
+              </View>
+
+              <View style={styles.SectionStyle}>
+                <Image source={password} style={styles.ImageStyle}/>
+              <TextInput
+                style={styles.input}
+                placeholder='Nhập lại mật khẩu'
+                secureTextEntry={true}
+                onChangeText={(repass)=>this.setState({repass})}
+                value={this.state.repass}
+              />
+              </View>
+              </View>
+              <TouchableOpacity style = {styles.button} onPress={() => {this.register()}}>
+                <Text style={styles.text}>Đăng ký</Text>
+              </TouchableOpacity>
           </View>
         </ImageBackground>
       </>
-      </ScrollView>
     );
   }
 }
@@ -111,18 +139,11 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   container: {
-        flex: 2/3,
+        flex: 1,
         alignItems: 'center',
     },
     input:{
-      height: 45,
-      width: 0.65*DEVICE_WIDTH,
-      backgroundColor: '#DDDDDD',
-      borderRadius: 10,
-      margin: 10,
-      paddingLeft: 15,
-      paddingRight: 15,
-      fontSize: 16
+      flex:1,
     },
     button: {
         backgroundColor: '#0755DA',
@@ -137,7 +158,28 @@ var styles = StyleSheet.create({
     text: {
         color: 'white',
         fontSize: 18
-    }
+    },
+    SectionStyle: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 45,
+    width: 0.65*DEVICE_WIDTH,
+    backgroundColor: '#DDDDDD',
+    borderRadius: 10,
+    marginBottom: 10,
+    marginTop: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
+    fontSize: 16
+  },
+
+  ImageStyle: {
+    height: 20,
+    width: 20,
+    resizeMode: 'stretch',
+    alignItems: 'center',
+  },
 });
 
 export default Register;

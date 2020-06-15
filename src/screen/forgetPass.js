@@ -8,10 +8,12 @@ import {
   TextInput,
   Dimensions,
   TouchableOpacity,
+  Image
 } from 'react-native';
 
 import bgImg from'../img/wallpaper.jpg';
-import Logo from '../components/logo.js'
+import Logo from '../components/logo.js';
+import email from'../img/email.png';
 
 class ForgetPass extends Component {
 
@@ -46,12 +48,15 @@ class ForgetPass extends Component {
               Nhập vào email đã đăng ký tài khoản trước đó. Hệ thống sẽ gửi tin nhắn chứa mã xác nhận để xác thực tài khoản của bạn!
             </Text>
             <Text style={{margin:20, fontSize:24, fontWeight:'bold'}}>Nhập email đăng ký</Text>
-            <TextInput
-              style={styles.input}
-              placeholder='Email'
-              onChangeText={(email)=>this.setState({email})}
-              value={this.state.email}
-            />
+            <View style={styles.SectionStyle}>
+              <Image source={email} style={styles.ImageStyle}/>
+              <TextInput
+                style={styles.input}
+                placeholder='Email'
+                onChangeText={(email)=>this.setState({email})}
+                value={this.state.email}
+              />
+            </View>
             <TouchableOpacity style = {styles.button} onPress={() => {this.emailConfirm()}}>
               <Text style={styles.text}>Tiếp tục</Text>
             </TouchableOpacity>
@@ -73,15 +78,7 @@ var styles = StyleSheet.create({
         alignItems: 'center',
     },
     input:{
-      height: 45,
-      width: 0.65*DEVICE_WIDTH,
-      backgroundColor: '#DDDDDD',
-      borderRadius: 10,
-      marginBottom: 10,
-      marginTop: 20,
-      paddingLeft: 15,
-      paddingRight: 15,
-      fontSize: 16
+      flex:1
     },
     button: {
         backgroundColor: '#0755DA',
@@ -96,7 +93,28 @@ var styles = StyleSheet.create({
     text: {
         color: 'white',
         fontSize: 18
-    }
+    },
+    SectionStyle: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 45,
+    width: 0.65*DEVICE_WIDTH,
+    backgroundColor: '#DDDDDD',
+    borderRadius: 10,
+    marginBottom: 10,
+    marginTop: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
+    fontSize: 16
+  },
+
+  ImageStyle: {
+    height: 25,
+    width: 25,
+    resizeMode: 'stretch',
+    alignItems: 'center',
+  },
 });
 
 export default ForgetPass;

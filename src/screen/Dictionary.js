@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 
 import volume from'../img/volume.png';
+import search from'../img/search.png';
 
 class Dictionary extends Component {
   constructor(props) {
@@ -58,17 +59,29 @@ class Dictionary extends Component {
     const {navigate} = this.props.navigation;
     return (
       <ScrollView>
-            <View style={{  alignItems: 'center',
-              justifyContent: 'center',
-              marginTop: 20
-            }}>
-              <TextInput
-                style={styles.search}
-                placeholder='Tra từ điển Anh-Việt'
-                onChangeText={text => this.SearchFilterFunction(text)}
-              />
-            </View>
-
+      <View style={{alignItems: 'center'}}>
+        <View style={styles.SectionStyle}>
+          <Image source={search} style={styles.ImageStyle}/>
+          <TextInput
+            style={{flex:1, fontSize: 18}}
+            placeholder='Tra từ điển Anh-Việt'
+            onChangeText={text => this.SearchFilterFunction(text)}
+          />
+          </View>
+        </View>
+        <View style={{}}>
+          <FlatList
+            style={styles.FlatList_Item}
+            data={this.state.dataSource}
+            renderItem={({ item }) => (
+              <TouchableOpacity onPress={() => navigate('MH_Dictionary')}>
+              <Text style={styles.textStyle}>{item}</Text>
+              </TouchableOpacity>
+            )}
+            enableEmptySections={true}
+            keyExtractor={(item, index) => index}
+          />
+        </View>
           <View style={styles.container}>
 
             <View style={{flexDirection: 'row',}}>
@@ -150,7 +163,25 @@ var styles = StyleSheet.create({
     height: DEVICE_HEIGHT/3,
     marginRight: 60,
     marginLeft: 60
-},
+  },
+  SectionStyle: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 45,
+    width: 0.7*DEVICE_WIDTH,
+    backgroundColor: '#DDDDDD',
+    borderRadius: 15,
+    marginTop: 20,
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
+  ImageStyle: {
+    height: 25,
+    width: 25,
+    resizeMode: 'stretch',
+    alignItems: 'center',
+  },
 });
 
 export default Dictionary;

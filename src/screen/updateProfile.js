@@ -9,9 +9,13 @@ import {
   TextInput,
   Dimensions,
   TouchableOpacity,
+  Image
 } from 'react-native';
 import bgImg from'../img/wallpaper.jpg';
-import Logo from '../components/logo.js'
+import Logo from '../components/logo.js';
+import user from'../img/user.png';
+import email from'../img/email.png';
+import phone from'../img/phone.png';
 
 class updateProfile extends Component {
   constructor (props){
@@ -51,26 +55,41 @@ class updateProfile extends Component {
           <Logo/>
             <View style={styles.container}>
             <Text style={{fontSize:24, fontWeight:'bold'}}>Nhập họ và tên mới:</Text>
-            <TextInput
+            <View style={{alignItems: 'center'}}>
+            <View style={styles.SectionStyle}>
+              <Image source={user} style={styles.ImageStyle}/>
+              <TextInput
               style={styles.input} placeholder='Họ tên'
               onChangeText={(name)=>this.setState({name})}
               value={this.state.name}
-            />
+              />
+              </View>
+              </View>
             <Text style={{fontSize:24, fontWeight:'bold'}}>Nhập email mới:</Text>
+            <View style={{alignItems: 'center'}}>
+            <View style={styles.SectionStyle}>
+              <Image source={email} style={styles.ImageStyle}/>
             <TextInput
-              style={styles.input} placeholder='Email'
-              onChangeText={(email)=>this.setState({email})}
-              value={this.state.email}
-            />
-            <Text style={{fontSize:24, fontWeight:'bold'}}>Nhập số điện thoại mới:</Text>
-            <TextInput
+            style={styles.input} placeholder='Email'
+            onChangeText={(email)=>this.setState({email})}
+            value={this.state.email}
+              />
+              </View>
+              </View>
+              <Text style={{fontSize:24, fontWeight:'bold'}}>Nhập số điện thoại mới:</Text>
+              <View style={{alignItems: 'center'}}>
+              <View style={styles.SectionStyle}>
+                <Image source={phone} style={styles.ImageStyle}/>
+              <TextInput
               style={styles.input} placeholder='Số điện thoại'
               onChangeText={(phone)=>this.setState({phone})}
               value={this.state.phone}
-            />
+              />
+              </View>
             <TouchableOpacity style = {styles.button} onPress={() => {this.updateProfile()}}>
               <Text style={styles.text}>Xác nhận</Text>
             </TouchableOpacity>
+            </View>
             </View>
           </ImageBackground>
 
@@ -88,17 +107,10 @@ var styles = StyleSheet.create({
   },
   container: {
         flex: 2/3,
-        alignItems: 'center',
+        margin: 30,
     },
     input:{
-      height: 45,
-      width: 0.65*DEVICE_WIDTH,
-      backgroundColor: '#DDDDDD',
-      borderRadius: 10,
-      margin: 10,
-      paddingLeft: 15,
-      paddingRight: 15,
-      fontSize: 16
+      flex: 1,
     },
     button: {
         backgroundColor: '#0755DA',
@@ -113,7 +125,28 @@ var styles = StyleSheet.create({
     text: {
         color: 'white',
         fontSize: 18
-    }
+    },
+    SectionStyle: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 45,
+    width: 0.65*DEVICE_WIDTH,
+    backgroundColor: '#DDDDDD',
+    borderRadius: 10,
+    marginBottom: 10,
+    marginTop: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
+    fontSize: 16
+  },
+
+  ImageStyle: {
+    height: 25,
+    width: 25,
+    resizeMode: 'stretch',
+    alignItems: 'center',
+  },
 });
 
 export default updateProfile;

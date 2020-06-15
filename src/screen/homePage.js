@@ -84,16 +84,16 @@ class HomePage extends Component {
               <Image source={logo} style={{width: 80,resizeMode: 'contain',}} />
             </View>
 
-            <View style={styles.search}>
-              <Image source={search} style={{width: 28,resizeMode: 'contain',}} />
-              <TextInput
-                style={{borderBottomWidth: 2,
-                fontSize: 18,
-                width: DEVICE_WIDTH*0.65,}}
-                placeholder='Tra từ điển Anh-Việt'
-                onChangeText={text => this.SearchFilterFunction(text)}
-              />
-            </View>
+            <View style={{alignItems: 'center',flex:3/8,marginBottom: 20,}}>
+              <View style={styles.SectionStyle}>
+                <Image source={search} style={styles.ImageStyle}/>
+                <TextInput
+                  style={{flex:1, fontSize: 18}}
+                  placeholder='Tra từ điển Anh-Việt'
+                  onChangeText={text => this.SearchFilterFunction(text)}
+                />
+                </View>
+              </View>
           </View>
 
           <View style={{}}>
@@ -185,13 +185,6 @@ var styles = StyleSheet.create({
       marginLeft: 40,
       fontSize: 24,
     },
-    search:{
-      flex:3/8,
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexDirection: 'row',
-      marginBottom: 20,
-    },
 
   textStyle: {
     padding: 10,
@@ -203,7 +196,25 @@ var styles = StyleSheet.create({
     height: DEVICE_HEIGHT/3,
     marginRight: 60,
     marginLeft: 60
-},
+  },
+  SectionStyle: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 45,
+    width: 0.7*DEVICE_WIDTH,
+    borderBottomWidth: 2,
+    borderRadius: 15,
+    marginTop: 20,
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
+  ImageStyle: {
+    height: 25,
+    width: 25,
+    resizeMode: 'stretch',
+    alignItems: 'center',
+  },
 });
 
 export default HomePage;

@@ -8,10 +8,12 @@ import {
   TextInput,
   Dimensions,
   TouchableOpacity,
+  Image
 } from 'react-native';
 
 import bgImg from'../img/wallpaper.jpg';
-import Logo from '../components/logo.js'
+import Logo from '../components/logo.js';
+import password from'../img/pass.png';
 
 class ChangePass extends Component {
   constructor (props){
@@ -45,7 +47,9 @@ class ChangePass extends Component {
           <Logo/>
           <View style={styles.container}>
             <Text style={{fontSize:24, fontWeight:'bold'}}>Tạo mật khẩu mới</Text>
-            <View style={styles.align}>
+            <View style={{alignItems: 'center'}}>
+            <View style={styles.SectionStyle}>
+              <Image source={password} style={styles.ImageStyle}/>
               <TextInput
                 style={styles.input}
                 placeholder='Mật khẩu'
@@ -54,8 +58,11 @@ class ChangePass extends Component {
                 value={this.state.pass}
               />
             </View>
+            </View>
             <Text style={{fontSize:24, fontWeight:'bold'}}>Nhập lại mật khẩu</Text>
-            <View style={styles.align}>
+            <View style={{alignItems: 'center'}}>
+            <View style={styles.SectionStyle}>
+              <Image source={password} style={styles.ImageStyle}/>
               <TextInput
                 style={styles.input}
                 placeholder='Nhập lại mật khẩu'
@@ -63,6 +70,7 @@ class ChangePass extends Component {
                 onChangeText={(repass)=>this.setState({repass})}
                 value={this.state.repass}
               />
+              </View>
 
             <TouchableOpacity style = {styles.button} onPress={() => {this.confirm()}}>
               <Text style={styles.text}>Xác nhận</Text>
@@ -86,15 +94,7 @@ var styles = StyleSheet.create({
         margin: 30,
     },
     input:{
-      height: 45,
-      width: 0.65*DEVICE_WIDTH,
-      backgroundColor: '#DDDDDD',
-      borderRadius: 10,
-      marginBottom: 10,
-      marginTop: 20,
-      paddingLeft: 15,
-      paddingRight: 15,
-      fontSize: 16
+      flex: 1
     },
     button: {
         backgroundColor: '#0755DA',
@@ -110,10 +110,27 @@ var styles = StyleSheet.create({
         color: 'white',
         fontSize: 18
     },
-    align:{
-      alignItems: 'center',
-      justifyContent: 'center',
-    }
+    SectionStyle: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 45,
+    width: 0.65*DEVICE_WIDTH,
+    backgroundColor: '#DDDDDD',
+    borderRadius: 10,
+    marginBottom: 10,
+    marginTop: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
+    fontSize: 16
+  },
+
+  ImageStyle: {
+    height: 25,
+    width: 25,
+    resizeMode: 'stretch',
+    alignItems: 'center',
+  },
 });
 
 export default ChangePass;
