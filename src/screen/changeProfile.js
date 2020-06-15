@@ -11,9 +11,6 @@ import bgImg from'../img/wallpaper.jpg';
 import Logo from '../components/logo.js'
 
 class changeProfile extends Component {
-  static navigationOptions:{
-    title: null,
-  };
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -26,6 +23,9 @@ class changeProfile extends Component {
             </TouchableOpacity>
             <TouchableOpacity style = {styles.button} onPress={() => navigate('MH_changePassword')}>
               <Text style={styles.text}>Thay đổi mật khẩu</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style = {styles.button} onPress={() => navigate('MH_index')}>
+              <Text style={styles.text}>Đăng xuất</Text>
             </TouchableOpacity>
           </View>
         </ImageBackground>

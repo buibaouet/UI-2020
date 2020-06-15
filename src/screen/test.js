@@ -190,7 +190,32 @@ export default class Test extends Component {
         <Text style={styles.answer}>{this.state.a4}</Text>
         </View>
         </RadioButton.Group>
+<<<<<<< HEAD
         </View>
+=======
+        <FlatList
+        horizontal
+        data={data}
+        renderItem={({ item: rowData }) => {
+          return (
+            <TouchableOpacity style={styles.listQuestion} onPress={() => {
+                this.setState({question: rowData.question,
+                                a1: rowData.a1,
+                                a2: rowData.a2,
+                                a3: rowData.a3,
+                                a4: rowData.a4,
+                                value: ''}, () => {
+                                console.log(this.state);
+                                })}}>
+              <Text>
+                {rowData.id}
+              </Text>
+            </TouchableOpacity>
+          );
+        }}
+        keyExtractor={(item, index) => index}
+        />
+>>>>>>> 477aec41d2aec0984bcb8adbce1a2622977baab1
         </>
 
       );

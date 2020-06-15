@@ -86,9 +86,9 @@ const AppNavigator = createStackNavigator(
       },
       MH_Home:{
         screen: Home,
-        navigationOptions:{
-          title: 'Trang chủ',
-        },
+        navigationOptions: {
+          headerShown: false,
+        }
       },
       MH_Dictionary:{
         screen: Dictionary,

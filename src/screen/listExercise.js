@@ -52,6 +52,7 @@ export default class ListExercise extends Component {
             <ListItem
               roundAvatar
               title={item.Des}
+              leftAvatar = {{source: require('../img/vocab.png')}}
               bottomDivider
               onPress={() => navigate('MH_Test',item.Des)}
             />

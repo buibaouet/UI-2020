@@ -37,8 +37,13 @@ class updateProfile extends Component {
         Alert.alert("Số điện thoại không hợp lệ");
     }
     else {
+<<<<<<< HEAD
       Alert.alert("Cập nhật tài khoản thành công");
       this.props.navigation.navigate('MH_changeProfile');
+=======
+      Alert.alert("Thay đổi thông tin thành công");
+      this.props.navigation.navigate('MH_Home');
+>>>>>>> 477aec41d2aec0984bcb8adbce1a2622977baab1
     }
   }
 
@@ -48,18 +53,21 @@ class updateProfile extends Component {
         <>
 
           <ImageBackground style={styles.bg} source={bgImg}>
-            <Logo/>
+          <Logo/>
             <View style={styles.container}>
+            <Text style={{fontSize:24, fontWeight:'bold'}}>Nhập họ và tên mới:</Text>
             <TextInput
               style={styles.input} placeholder='Họ tên'
               onChangeText={(name)=>this.setState({name})}
               value={this.state.name}
             />
+            <Text style={{fontSize:24, fontWeight:'bold'}}>Nhập email mới:</Text>
             <TextInput
               style={styles.input} placeholder='Email'
               onChangeText={(email)=>this.setState({email})}
               value={this.state.email}
             />
+            <Text style={{fontSize:24, fontWeight:'bold'}}>Nhập số điện thoại mới:</Text>
             <TextInput
               style={styles.input} placeholder='Số điện thoại'
               onChangeText={(phone)=>this.setState({phone})}
