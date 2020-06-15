@@ -13,29 +13,33 @@ import {
 import bgImg from'../img/wallpaper.jpg';
 import Logo from '../components/logo.js'
 
-class changePassword extends Component {
+class ChangePass extends Component {
   constructor (props){
     super(props);
     this.state={
-        oldpass:"",
-        pass:"" ,
-        repass:"",
+      oldpass:"",
+      pass:"" ,
+      repass:"",
     };
   }
 
   confirm=()=>{
-    if(this.state.pass.length==0){
-      Alert.alert("Vui lòng điền mật khẩu");
-    }
-    else if(this.state.pass.length < 8 || this.state.pass.length > 14){
-      Alert.alert("Mật khẩu phải bao gồm 8-14 ký tự");
-    }
-    else if(this.state.pass!=this.state.repass){
-      Alert.alert("Mật khẩu không khớp");
-    }
-    else {
-      Alert.alert("Thay đổi mật khẩu thành công");
-      this.props.navigation.navigate('MH_Home');
+    if(this.state.oldpass!= "12345678"){
+      Alert.alert("Mật khẩu không chính xác");
+    }else{
+      if(this.state.pass.length==0){
+        Alert.alert("Vui lòng điền mật khẩu");
+      }
+      else if(this.state.pass.length < 8 || this.state.pass.length > 14){
+        Alert.alert("Mật khẩu phải bao gồm 8-14 ký tự");
+      }
+      else if(this.state.pass!=this.state.repass){
+        Alert.alert("Mật khẩu không khớp");
+      }
+      else {
+        Alert.alert("Thay đổi mật khẩu thành công");
+        this.props.navigation.navigate('MH_changeProfile');
+      }
     }
   }
 
@@ -43,8 +47,9 @@ class changePassword extends Component {
     return (
       <>
         <ImageBackground style={styles.bg} source={bgImg}>
+          <Logo/>
           <View style={styles.container}>
-            <Text style={{fontSize:24, fontWeight:'bold'}}>Nhập mật khẩu cũ</Text>
+            <Text style={{fontSize:24, fontWeight:'bold'}}>Mật khẩu mới</Text>
             <View style={styles.align}>
               <TextInput
                 style={styles.input}
@@ -54,7 +59,7 @@ class changePassword extends Component {
                 value={this.state.oldpass}
               />
             </View>
-            <Text style={{fontSize:24, fontWeight:'bold'}}>Tạo mật khẩu mới</Text>
+            <Text style={{fontSize:24, fontWeight:'bold'}}>Nhập mật khẩu cũ</Text>
             <View style={styles.align}>
               <TextInput
                 style={styles.input}
@@ -126,4 +131,4 @@ var styles = StyleSheet.create({
     }
 });
 
-export default changePassword;
+export default ChangePass;

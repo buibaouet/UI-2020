@@ -7,8 +7,11 @@ import {
   StyleSheet,
   Dimensions,
   TouchableOpacity,
-  FlatList
+  FlatList,
+  ScrollView
 } from 'react-native';
+
+import volume from'../img/volume.png';
 
 class Dictionary extends Component {
   constructor(props) {
@@ -54,10 +57,10 @@ class Dictionary extends Component {
   render() {
     const {navigate} = this.props.navigation;
     return (
-      <>
+      <ScrollView>
             <View style={{  alignItems: 'center',
               justifyContent: 'center',
-              flex: 1/5,
+              marginTop: 20
             }}>
               <TextInput
                 style={styles.search}
@@ -67,15 +70,40 @@ class Dictionary extends Component {
             </View>
 
           <View style={styles.container}>
-          <Text style={{fontSize: 34}}>
-            apple
-          </Text>
-          <Text>
-            /’æpl/
-          </Text>
 
+            <View style={{flexDirection: 'row',}}>
+            <Text style={{fontSize: 40}}>
+              apple
+            </Text>
+              <Image source={volume} style={{marginLeft: 10, width: 30,resizeMode: 'contain', }} />
+            </View>
+            <Text style={{fontSize: 16, color:'gray', }}>noun, | ap·​ple often attributive | \’æpl\</Text>
           </View>
-      </>
+
+          <View style = {styles.explain}>
+            <Text style={styles.header}>Giải nghĩa</Text>
+            <Text style={styles.title}>• Danh từ</Text>
+            <Text style={styles.content}>✓ Quả táo</Text>
+            <Text style={styles.title}>• apple of discord</Text>
+            <Text style={styles.content}>✓ mối bất hoà</Text>
+            <Text style={styles.title}>• apple of the eye</Text>
+            <Text style={styles.content}>✓ đồng tử, con ngươi</Text>
+            <Text style={styles.content}>✓ vật quí báu phải giữ gìn nhất</Text>
+            <Text style={styles.title}>• the rotten apple injures its neighbours</Text>
+            <Text style={styles.content}>✓ (tục ngữ) con sâu bỏ rầu nồi canh</Text>
+
+            <Text style={styles.header}>Đặt câu ví dụ</Text>
+            <Text style={styles.content}>• He was munching on an apple.</Text>
+            <Text style={styles.content}>• He took a bite out of the apple.</Text>
+            <Text style={styles.content}>• The apple tree at the bottom of the garden is beginning to blossom.</Text>
+            <Text style={styles.content}>• Do you have any cooking apples?</Text>
+
+            <Text style={styles.header}>Từ liên quan: Đồng nghĩa, trái nghĩa</Text>
+            <Text style={styles.content}>• angelica</Text>
+            <Text style={styles.content}>• apriplum</Text>
+            <Text style={styles.content}>• aprium</Text>
+          </View>
+      </ScrollView>
     );
   }
 }
@@ -85,8 +113,24 @@ const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 var styles = StyleSheet.create({
   container: {
-    flex: 4/5,
     margin: 50
+  },
+  explain:{
+    marginLeft: 20
+  },
+  header:{
+    color: '#0288d1',
+    fontSize: 22,
+    margin: 10
+  },
+  title:{
+    color: '#c83a30',
+    fontSize: 18
+  },
+  content:{
+    fontSize: 16,
+    marginBottom: 5,
+    marginLeft: 30
   },
     search:{
       backgroundColor: '#EEE',

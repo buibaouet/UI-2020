@@ -36,15 +36,9 @@ class updateProfile extends Component {
     else if (regex.test(String(this.state.phone)) == false) {
         Alert.alert("Số điện thoại không hợp lệ");
     }
-    else if(this.state.pass.length < 8 || this.state.pass.length > 14){
-      Alert.alert("Mật khẩu phải bao gồm 8-14 ký tự");
-    }
-    else if(this.state.pass!=this.state.repass){
-      Alert.alert("Mật khẩu không khớp");
-    }
     else {
-      Alert.alert("Đăng ký tài khoản thành công");
-      this.props.navigation.navigate('MH_Home');
+      Alert.alert("Cập nhật tài khoản thành công");
+      this.props.navigation.navigate('MH_changeProfile');
     }
   }
 
@@ -52,7 +46,7 @@ class updateProfile extends Component {
     const {navigate} = this.props.navigation;
     return (
         <>
-        
+
           <ImageBackground style={styles.bg} source={bgImg}>
             <Logo/>
             <View style={styles.container}>
@@ -76,9 +70,9 @@ class updateProfile extends Component {
             </TouchableOpacity>
             </View>
           </ImageBackground>
-          
+
         </>
-        
+
     );
   }
 }
