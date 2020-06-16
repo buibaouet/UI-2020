@@ -161,7 +161,8 @@ export default class Test extends Component {
             a1: rowData.a1,
             a2: rowData.a2,
             a3: rowData.a3,
-            a4: rowData.a4}, () => {
+            a4: rowData.a4,
+            value:''}, () => {
               console.log(this.state);
             })}}>
             <Text>

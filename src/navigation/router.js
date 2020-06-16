@@ -45,6 +45,8 @@ import Test from '../screen/test.js';
 import listTest from '../screen/listTest.js';
 import listExercise from '../screen/listExercise.js';
 import testKind from '../screen/testKind.js';
+import Refer from '../screen/refer.js';
+import Video from '../screen/video.js'
 
 const AppNavigator = createStackNavigator(
     {
@@ -311,6 +313,18 @@ const AppNavigator = createStackNavigator(
         screen: Exercise,
         navigationOptions:{
           title: 'Dạng bài tập',
+        },
+      },
+      MH_Video:{
+        screen: Video,
+        navigationOptions:{
+          title: 'Video bài giảng',
+        },
+      },
+      MH_Refer:{
+        screen: Refer,
+        navigationOptions:{
+          title: 'Tham khảo',
         },
       },
     },

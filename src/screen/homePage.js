@@ -104,11 +104,11 @@ class HomePage extends Component {
               <Image source={exam} style={styles.image} />
               <Text style={styles.text}>Luyện đề thi</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.page} onPress={() => navigate('')}>
+            <TouchableOpacity style={styles.page} onPress={() => navigate('MH_Video')}>
               <Image source={video} style={styles.image} />
               <Text style={styles.text}>Video bài giảng</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.page} onPress={() => navigate('MH_Dictionary')}>
+            <TouchableOpacity style={styles.page} onPress={() => navigate('MH_Refer')}>
               <Image source={link} style={styles.image} />
               <Text style={styles.text}>Tham khảo thêm</Text>
             </TouchableOpacity>
