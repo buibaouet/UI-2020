@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native';
-
+import Autocomplete from 'react-native-dropdown-autocomplete-textinput';
 
 import bgImg from'../img/wallpaper.jpg';
 import logo from'../img/Logo.png';
@@ -25,52 +25,41 @@ import notifi from'../img/notification.png';
 import search from'../img/search.png';
 
 class HomePage extends Component {
+
   constructor(props) {
     super(props);
     this.state = {};
     this.arrayWords = [
-      'Apple',
-      'Apricot',
-      'Avocado',
-      'Banana',
-      'Blackberry',
-      'Blackcurrant',
-      'Blueberry',
-      'Boysenberry',
-      'Cherry',
-      'Coconut',
-      'Grape',
-      'Grapefruit',
-      'Kiwifruit ',
-      'Lemon',
-      'Lime',
-      'Litchi',
-      'Mango',
-      'Melon',
-      'Nectarine',
-      'Orange',
-      'Papaya',
+      {name: 'Apple'},
+      {name: 'Apricot'},
+      {name: 'Avocado'},
+      {name: 'Banana'},
+      {name: 'Blackberry'},
+      {name: 'Blackcurrant'},
+      {name: 'Blueberry'},
+      {name: 'Boysenberry'},
+      {name: 'Cherry'},
+      {name: 'Coconut'},
+      {name: 'Grape'},
+      {name: 'Grapefruit'},
+      {name: 'Kiwifruit '},
+      {name: 'Lemon'},
+      {name: 'Lime'},
+      {name: 'Litchi'},
+      {name: 'Mango'},
+      {name: 'Melon'},
+      {name: 'Nectarine'},
+      {name: 'Orange'},
+      {name: 'Papaya'},
     ];
   }
-
-  SearchFilterFunction(text) {
-      const newData = this.arrayWords.filter(function(item) {
-        const itemData = item ? item.toUpperCase() : ''.toUpperCase();
-        const textData = text.toUpperCase();
-        return itemData.indexOf(textData) > -1;
-      });
-      this.setState({
-        dataSource: newData,
-        text: text,
-      });
-    }
 
   render() {
     const {navigate} = this.props.navigation;
     return (
       <>
         <ImageBackground style={styles.bg} source={bgImg}>
-          <View style={{flex:2, backgroundColor: ''}}>
+          <View style={{flex:1/3}}>
             <View style={{flex:1/4, flexDirection: 'row', justifyContent: 'flex-end'}}>
               <TouchableOpacity onPress={() => navigate('MH_noti')}>
                 <Image source={notifi} style={styles.icon} />
@@ -84,30 +73,18 @@ class HomePage extends Component {
               <Image source={logo} style={{width: 80,resizeMode: 'contain',}} />
             </View>
 
-            <View style={{alignItems: 'center',flex:3/8,marginBottom: 20,}}>
-              <View style={styles.SectionStyle}>
-                <Image source={search} style={styles.ImageStyle}/>
-                <TextInput
-                  style={{flex:1, fontSize: 18}}
-                  placeholder='Tra từ điển Anh-Việt'
-                  onChangeText={text => this.SearchFilterFunction(text)}
-                />
-                </View>
-              </View>
-          </View>
+            <View style={styles.search}>
+              <Image source={search} style={{width: 28,resizeMode: 'contain',}} />
+              <Autocomplete
+                data={this.arrayWords}
+                displayKey="name"
+                placeholder={'Tra từ điển Anh-Việt'}
+                placeholderColor = '#GGG'
+                onSelect={() => navigate('MH_Dictionary')}
+                maxHeight={300}
+              />
 
-          <View style={{}}>
-            <FlatList
-              style={styles.FlatList_Item}
-              data={this.state.dataSource}
-              renderItem={({ item }) => (
-                <TouchableOpacity onPress={() => navigate('MH_Dictionary')}>
-                <Text style={styles.textStyle}>{item}</Text>
-                </TouchableOpacity>
-              )}
-              enableEmptySections={true}
-              keyExtractor={(item, index) => index}
-            />
+            </View>
           </View>
 
           <View style={styles.container}>
@@ -131,7 +108,7 @@ class HomePage extends Component {
               <Image source={video} style={styles.image} />
               <Text style={styles.text}>Video bài giảng</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.page} onPress={() => navigate('')}>
+            <TouchableOpacity style={styles.page} onPress={() => navigate('MH_Dictionary')}>
               <Image source={link} style={styles.image} />
               <Text style={styles.text}>Tham khảo thêm</Text>
             </TouchableOpacity>
@@ -156,7 +133,7 @@ var styles = StyleSheet.create({
         alignItems: 'center',
     },
   container: {
-        flex:5,
+        flex:2/3,
         alignItems: 'center',
     },
   page: {
@@ -172,7 +149,7 @@ var styles = StyleSheet.create({
     },
     image:{
       marginLeft: 30,
-      width: 55,
+      width: 50,
       resizeMode: 'contain',
     },
     icon:{
@@ -186,35 +163,14 @@ var styles = StyleSheet.create({
       fontSize: 24,
     },
 
-  textStyle: {
-    padding: 10,
-    fontSize: 18,
-    backgroundColor: '#FFFFCC',
-    borderBottomWidth: 1
-  },
-  FlatList_Item: {
-    height: DEVICE_HEIGHT/3,
-    marginRight: 60,
-    marginLeft: 60
-  },
-  SectionStyle: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 45,
-    width: 0.7*DEVICE_WIDTH,
-    borderBottomWidth: 2,
-    borderRadius: 15,
-    marginTop: 20,
-    paddingLeft: 15,
-    paddingRight: 15,
-  },
-  ImageStyle: {
-    height: 25,
-    width: 25,
-    resizeMode: 'stretch',
-    alignItems: 'center',
-  },
+  search:{
+     flex:3/8,
+     alignItems: 'center',
+     justifyContent: 'center',
+     flexDirection: 'row',
+     marginBottom: 20,
+     width: DEVICE_WIDTH * 0.7,
+   },
 });
 
 export default HomePage;

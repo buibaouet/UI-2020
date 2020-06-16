@@ -51,7 +51,7 @@ const AppNavigator = createStackNavigator(
       MH_index:{
         screen: Index,
         navigationOptions:{
-          title: null,
+          headerShown: false,
         },
       },
       MH_login:{

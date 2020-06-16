@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import bgImg from'../img/wallpaper.jpg';
 import Logo from '../components/logo.js'
-
+console.disableYellowBox = true;
 class App extends Component {
   static navigationOptions:{
     title: null,

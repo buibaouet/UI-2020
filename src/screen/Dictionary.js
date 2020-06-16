@@ -7,9 +7,9 @@ import {
   StyleSheet,
   Dimensions,
   TouchableOpacity,
-  FlatList,
   ScrollView
 } from 'react-native';
+import Autocomplete from 'react-native-dropdown-autocomplete-textinput';
 
 import volume from'../img/volume.png';
 import search from'../img/search.png';
@@ -19,41 +19,29 @@ class Dictionary extends Component {
     super(props);
     this.state = {};
     this.arrayWords = [
-      'Apple',
-      'Apricot',
-      'Avocado',
-      'Banana',
-      'Blackberry',
-      'Blackcurrant',
-      'Blueberry',
-      'Boysenberry',
-      'Cherry',
-      'Coconut',
-      'Grape',
-      'Grapefruit',
-      'Kiwifruit ',
-      'Lemon',
-      'Lime',
-      'Litchi',
-      'Mango',
-      'Melon',
-      'Nectarine',
-      'Orange',
-      'Papaya',
+      {name: 'Apple'},
+      {name: 'Apricot'},
+      {name: 'Avocado'},
+      {name: 'Banana'},
+      {name: 'Blackberry'},
+      {name: 'Blackcurrant'},
+      {name: 'Blueberry'},
+      {name: 'Boysenberry'},
+      {name: 'Cherry'},
+      {name: 'Coconut'},
+      {name: 'Grape'},
+      {name: 'Grapefruit'},
+      {name: 'Kiwifruit '},
+      {name: 'Lemon'},
+      {name: 'Lime'},
+      {name: 'Litchi'},
+      {name: 'Mango'},
+      {name: 'Melon'},
+      {name: 'Nectarine'},
+      {name: 'Orange'},
+      {name: 'Papaya'},
     ];
   }
-
-  SearchFilterFunction(text) {
-      const newData = this.arrayWords.filter(function(item) {
-        const itemData = item ? item.toUpperCase() : ''.toUpperCase();
-        const textData = text.toUpperCase();
-        return itemData.indexOf(textData) > -1;
-      });
-      this.setState({
-        dataSource: newData,
-        text: text,
-      });
-    }
 
   render() {
     const {navigate} = this.props.navigation;
@@ -62,26 +50,18 @@ class Dictionary extends Component {
       <View style={{alignItems: 'center'}}>
         <View style={styles.SectionStyle}>
           <Image source={search} style={styles.ImageStyle}/>
-          <TextInput
+          <Autocomplete
+            data={this.arrayWords}
+            displayKey="name"
             style={{flex:1, fontSize: 18}}
-            placeholder='Tra từ điển Anh-Việt'
-            onChangeText={text => this.SearchFilterFunction(text)}
+            minimumCharactersCount={1}
+            placeholder={'Tra từ điển Anh-Việt'}
+            onSelect={() => navigate('MH_Dictionary')}
+            maxHeight={300}
           />
           </View>
         </View>
-        <View style={{}}>
-          <FlatList
-            style={styles.FlatList_Item}
-            data={this.state.dataSource}
-            renderItem={({ item }) => (
-              <TouchableOpacity onPress={() => navigate('MH_Dictionary')}>
-              <Text style={styles.textStyle}>{item}</Text>
-              </TouchableOpacity>
-            )}
-            enableEmptySections={true}
-            keyExtractor={(item, index) => index}
-          />
-        </View>
+
           <View style={styles.container}>
 
             <View style={{flexDirection: 'row',}}>
@@ -152,18 +132,6 @@ var styles = StyleSheet.create({
       fontSize: 18,
       width: DEVICE_WIDTH*0.65,
     },
-
-  textStyle: {
-    padding: 10,
-    fontSize: 18,
-    backgroundColor: '#FFFFCC',
-    borderBottomWidth: 1
-  },
-  FlatList_Item: {
-    height: DEVICE_HEIGHT/3,
-    marginRight: 60,
-    marginLeft: 60
-  },
   SectionStyle: {
     flexDirection: 'row',
     justifyContent: 'center',
