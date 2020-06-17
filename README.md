@@ -31,3 +31,6 @@ Cô Ngô Thị Duyên
 > react-native start
 * Start application (ở một terminal khác)
 > react-native run-android
+* Đăng nhập vào ứng dụng
+> Tài khoản: nhom8ui
+> Mật khẩu: 12345678
