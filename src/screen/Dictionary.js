@@ -50,15 +50,10 @@ class Dictionary extends Component {
       <View style={{alignItems: 'center'}}>
         <View style={styles.SectionStyle}>
           <Image source={search} style={styles.ImageStyle}/>
-          <Autocomplete
-            data={this.arrayWords}
-            displayKey="name"
-            style={{flex:1, fontSize: 18}}
-            minimumCharactersCount={1}
-            placeholder={'Tra từ điển Anh-Việt'}
-            onSelect={() => navigate('MH_Dictionary')}
-            maxHeight={300}
-          />
+          <TextInput
+                style={{flex:1, fontSize: 18}}
+                placeholder='Tra từ điển Anh-Việt'
+                />
           </View>
         </View>
 

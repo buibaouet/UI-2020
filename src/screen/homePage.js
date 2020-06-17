@@ -74,6 +74,11 @@ class HomePage extends Component {
             </View>
 
             <View style={styles.search}>
+            <View style={{alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'row',
+            width: DEVICE_WIDTH * 0.7,}}>
+
               <Image source={search} style={{width: 28,resizeMode: 'contain',}} />
               <Autocomplete
                 data={this.arrayWords}
@@ -83,7 +88,7 @@ class HomePage extends Component {
                 onSelect={() => navigate('MH_Dictionary')}
                 maxHeight={300}
               />
-
+              </View>
             </View>
           </View>
 
@@ -167,9 +172,7 @@ var styles = StyleSheet.create({
      flex:3/8,
      alignItems: 'center',
      justifyContent: 'center',
-     flexDirection: 'row',
      marginBottom: 20,
-     width: DEVICE_WIDTH * 0.7,
    },
 });
 

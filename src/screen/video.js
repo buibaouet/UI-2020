@@ -6,25 +6,25 @@ const data = [
   {
       title: 'Bài 1',
       Des: 'Danh từ và đại từ',
-      img: require('../img/video.png'),
+      img: require('../img/youtube.png'),
       link: 'https://www.youtube.com/watch?v=G26kkqg2fHQ&list=PLoCMsFInB0OyRnOeSP41o1mV9fVFGKFRq&index=2&t=3s',
   },
   {
       title: 'Bài 2',
       Des: 'Mạo Từ',
-      img: require('../img/video.png'),
+      img: require('../img/youtube.png'),
       link: 'https://www.youtube.com/watch?v=4LATq-VoiWw&list=PLoCMsFInB0OyRnOeSP41o1mV9fVFGKFRq&index=3&t=0s',
   },
   {
       title: 'Bài 3',
       Des: 'Cụm Danh Từ (Tiết 1)',
-      img: require('../img/video.png'),
+      img: require('../img/youtube.png'),
       link: 'https://www.youtube.com/watch?v=WDgW3R2tguo&list=PLoCMsFInB0OyRnOeSP41o1mV9fVFGKFRq&index=4&t=0s',
   },
   {
       title: 'Bài 4',
       Des: 'Cụm danh từ Tiết 2',
-      img: require('../img/video.png'),
+      img: require('../img/youtube.png'),
       link: 'https://www.youtube.com/watch?v=ZvOcrKEOIpU&list=PLoCMsFInB0OyRnOeSP41o1mV9fVFGKFRq&index=5&t=0s',
   },
 
@@ -36,7 +36,7 @@ export default class video extends Component {
     return (
     <>
     <Text></Text>
-    <Text style={{fontSize:24, fontWeight:'bold'}}>Bài giảng Tiếng Anh:</Text>
+    <Text style={{fontSize:24, fontWeight:'bold', marginLeft: 20}}>Bài giảng Tiếng Anh:</Text>
     <Text></Text>
       <List>
         <FlatList

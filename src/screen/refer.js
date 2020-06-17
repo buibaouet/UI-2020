@@ -36,7 +36,7 @@ export default class refer extends Component {
     return (
     <>
     <Text></Text>
-    <Text style={{fontSize:24, fontWeight:'bold'}}>Các trang tham khảo về tiếng Anh:</Text>
+    <Text style={{fontSize:24, fontWeight:'bold', marginLeft: 20}}>Các trang tham khảo về tiếng Anh:</Text>
     <Text></Text>
       <List>
         <FlatList
